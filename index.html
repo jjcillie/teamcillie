@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Cillie</title>
+    <title>John Cillie - Professional Portfolio</title>
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <!-- Custom Styles -->
@@ -16,13 +16,21 @@
     <nav class="navbar is-dark">
         <div class="navbar-brand">
             <a class="navbar-item" href="#">
-                Team Cillie
+                John Cillie
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </a>
         </div>
-        <div class="navbar-menu">
+        <div id="navbarBasic" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="#about">
-                    About
+                    About Me
+                </a>
+                <a class="navbar-item" href="#resume">
+                    Resume
                 </a>
                 <a class="navbar-item" href="#projects">
                     Projects
@@ -37,54 +45,129 @@
     <!-- Hero Section -->
     <section class="hero is-primary">
         <div class="hero-body">
-            <p class="title">
-                Welcome to Team Cillie!
-            </p>
-            <p class="subtitle">
-                Building a better future, together.
-            </p>
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    Welcome to My Professional Portfolio
+                </h1>
+                <h2 class="subtitle">
+                    Dynamic Product Manager | Engineering Leader | Innovator
+                </h2>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Me Section -->
     <section id="about" class="section">
         <div class="container">
-            <h1 class="title">About Team Cillie</h1>
+            <h1 class="title">About Me</h1>
+            <div class="columns is-vcentered">
+                <div class="column is-one-third">
+                    <figure class="image is-128x128 is-rounded">
+                        <img src="your-photo.jpg" alt="Your photo">
+                    </figure>
+                </div>
+                <div class="column">
+                    <p>
+                        Hi, I’m John Cillie, a seasoned Product Manager with over a decade of experience in supply chain,
+                        manufacturing, and digital solutions. My passion lies in leveraging technology to drive efficiency and
+                        create impactful solutions that address complex challenges.
+                    </p>
+                    <p>
+                        I specialize in leading cross-functional teams, developing strategic roadmaps, and delivering
+                        user-centric products that align with organizational goals. When I’m not optimizing processes, you
+                        can find me volunteering or mentoring aspiring professionals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+        <div class="container">
+            <h1 class="title">Resume</h1>
             <p>
-                We are a team dedicated to innovation and growth. Join us on our journey!
+                Download my full resume <a href="JohnCillie_Resume.pdf" target="_blank">here</a>.
             </p>
+            <h2 class="subtitle">Professional Experience</h2>
+            <div>
+                <strong>Lead Product Manager, Thrasio</strong> (April 2024 – Present)<br>
+                - Defined and executed the strategic vision for enterprise software, leading to innovations in supply chain and financial systems.<br>
+                - Reduced software costs by $1M annually through process streamlining.<br>
+                - Delivered scalable iPaaS integrations, improving efficiency by 30%.
+            </div>
+            <br>
+            <div>
+                <strong>Senior Product Manager, Thrasio</strong> (March 2023 – April 2024)<br>
+                - Increased inventory accuracy from 82% to 92%.<br>
+                - Reduced procurement cycle time by 35% through supplier collaboration tools.<br>
+                - Enhanced data sync accuracy to 80% across ERP and warehouse systems.
+            </div>
+            <br>
+            <!-- Add other roles similarly -->
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h1 class="title">Projects</h1>
+            <div class="columns is-multiline">
+                <div class="column is-one-third">
+                    <div class="box">
+                        <h2 class="subtitle">Project Name 1</h2>
+                        <p>A brief description of the project, highlighting your role and achievements.</p>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="box">
+                        <h2 class="subtitle">Project Name 2</h2>
+                        <p>A brief description of the project, highlighting your role and achievements.</p>
+                    </div>
+                </div>
+                <!-- Add more projects -->
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h1 class="title">Contact Us</h1>
-            <form>
+            <h1 class="title">Contact Me</h1>
+            <form action="your-form-handler.php" method="POST">
                 <div class="field">
                     <label class="label">Name</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Your name">
+                        <input class="input" type="text" name="name" placeholder="Your name" required>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Email</label>
                     <div class="control">
-                        <input class="input" type="email" placeholder="Your email">
+                        <input class="input" type="email" name="email" placeholder="Your email" required>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Message</label>
                     <div class="control">
-                        <textarea class="textarea" placeholder="Your message"></textarea>
+                        <textarea class="textarea" name="message" placeholder="Your message" required></textarea>
                     </div>
                 </div>
                 <div class="control">
-                    <button class="button is-primary">Send</button>
+                    <button class="button is-primary" type="submit">Send</button>
                 </div>
             </form>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                &copy; 2025 John Cillie | Built with Bulma CSS
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>
