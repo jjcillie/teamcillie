@@ -28,7 +28,7 @@
 
 <body class="bg-gray-50 text-gray-900" style="background-color: lightgray;">
     <!-- Navigation Bar -->
-    <nav class="bg-gray-800 text-white">
+    <!-- <nav class="bg-gray-800 text-white sticky top-0 z-50 shadow-md">
         <div class="container mx-auto flex justify-between items-center py-4 px-6">
             <a class="text-lg font-bold" href="#">
                 John Cillie
@@ -38,6 +38,28 @@
                 <a class="hover:text-gray-400" href="#resume">Resume</a>
                 <a class="hover:text-gray-400" href="#projects">Projects</a>
                 <a class="hover:text-gray-400" href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav> -->
+    <nav class="bg-gray-800 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="flex items-center space-x-2">
+
+                <span class="text-lg font-bold">John Cillie</span>
+            </div>
+            <div class="space-x-4">
+                <template x-if="activeSection">
+                    <span class="text-sm text-gray-400 hidden sm:inline">Now Viewing: <span
+                            x-text="activeSection"></span></span>
+                </template>
+                <a :class="activeSection === 'About Me' ? 'text-blue-400' : 'hover:text-gray-400'" 
+                    href="#about">About Me</a>
+                <a :class="activeSection === 'Resume' ? 'text-blue-400' : 'hover:text-gray-400'"
+                    href="#resume">Resume</a>
+                <a :class="activeSection === 'Projects' ? 'text-blue-400' : 'hover:text-gray-400'"
+                    href="#projects">Projects</a>
+                <a :class="activeSection === 'Contact' ? 'text-blue-400' : 'hover:text-gray-400'"
+                    href="#contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -52,7 +74,7 @@
     </section>
 
     <!-- About Me Section -->
-    <section id="about" class="py-12">
+    <section id="about" data-section="About Me" class="py-12">
         <div class="container mx-auto px-6">
             <h1 class="text-3xl font-bold mb-6 text-center">About Me</h1>
             <div class="flex flex-col md:flex-row items-center">
@@ -78,8 +100,7 @@
                         strategy, ensuring innovation is both impactful and sustainable.</p>
                     <p class="mb-4">
                         Beyond work, I’m committed to mentorship and community engagement, helping aspiring
-                        professionals
-                        navigate the rapidly evolving tech landscape. I believe that knowledge-sharing and continuous
+                        professionals navigate the rapidly evolving tech landscape. I believe that knowledge-sharing and continuous
                         learning are the keys to driving meaningful progress—both in business and in life.</p>
                     </p>
                 </div>
@@ -88,7 +109,7 @@
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="py-12 bg-gray-100">
+    <section id="resume" data-section="Resume" class="py-12 bg-gray-100">
         <div class="container mx-auto px-6">
             <h1 class="text-3xl font-bold mb-6 text-center">Resume</h1>
             <p class="text-center mb-6">
@@ -222,7 +243,7 @@
         </div>
     </section>
 
-    <section id="projects" class="py-12">
+    <section id="projects" data-section="Projects" class="py-12">
         <div class="container mx-auto px-6">
             <h1 class="text-3xl font-bold mb-6 text-center">Select Projects</h1>
 
@@ -264,7 +285,7 @@
 
 
     <!-- Contact Section -->
-    <section id="contact" class="py-12 bg-gray-100">
+    <section id="contact" data-section="Contact Me" class="py-12 bg-gray-100">
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-3xl font-bold mb-6">Contact Me</h1>
             <ul class="list-disc pl-5 mt-2 space-y-1">
@@ -281,9 +302,31 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-4">
         <div class="text-center">
-            &copy; 2025 John Cillie | Powered by simplicity, styled for greatness.
+            &copy; 2025 John Cillie | Thank you for taking the time to view my site!
         </div>
     </footer>
+    <script>
+        function scrollSpy() {
+            return {
+                activeSection: null,
+                init() {
+                    const sections = document.querySelectorAll('section[data-section]');
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                this.activeSection = entry.target.getAttribute('data-section');
+                            }
+                        });
+                    }, {
+                        threshold: 0.6
+                    });
+
+                    sections.forEach(section => observer.observe(section));
+                }
+            }
+        }
+    </script>
+
 </body>
 
 </html>
