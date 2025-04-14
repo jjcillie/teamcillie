@@ -1,0 +1,10 @@
+{
+    "usersList": ["John","Lana"],
+    "timeouts": {
+        "ts": "1 hour",
+        "ms": 1000
+    },
+    "hiPrompt": "Hi there! Nice to meet you!",
+    "isActiveSession": true,
+    "kvTableName": "USERS"
+}
